@@ -222,6 +222,8 @@
             border: 1px solid rgba(197, 162, 126, 0.1);
             border-radius: 8px;
             transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(60px);
         }
 
         .mission-card:hover {
@@ -265,6 +267,8 @@
             background: rgba(255, 255, 255, 0.02);
             border-left: 3px solid var(--accent-gold);
             transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateX(-50px);
         }
 
         .value-card:hover {
@@ -310,6 +314,8 @@
             overflow: hidden;
             border-radius: 8px;
             cursor: pointer;
+            opacity: 0;
+            transform: translateY(80px);
         }
 
         .team-image {
@@ -772,84 +778,81 @@
 
         // Scroll-triggered animations
         gsap.utils.toArray('.fade-in').forEach((element) => {
-            gsap.from(element, {
+            gsap.to(element, {
                 scrollTrigger: {
                     trigger: element,
                     start: 'top 85%',
-                    end: 'top 65%',
                     toggleActions: 'play none none reverse',
                 },
-                opacity: 0,
-                y: 50,
+                opacity: 1,
+                y: 0,
                 duration: 1,
                 ease: 'power3.out',
             });
         });
 
         gsap.utils.toArray('.fade-in-left').forEach((element) => {
-            gsap.from(element, {
+            gsap.to(element, {
                 scrollTrigger: {
                     trigger: element,
                     start: 'top 80%',
-                    end: 'top 60%',
                     toggleActions: 'play none none reverse',
                 },
-                opacity: 0,
-                x: -100,
+                opacity: 1,
+                x: 0,
                 duration: 1.2,
                 ease: 'power3.out',
             });
         });
 
         gsap.utils.toArray('.fade-in-right').forEach((element) => {
-            gsap.from(element, {
+            gsap.to(element, {
                 scrollTrigger: {
                     trigger: element,
                     start: 'top 80%',
-                    end: 'top 60%',
                     toggleActions: 'play none none reverse',
                 },
-                opacity: 0,
-                x: 100,
+                opacity: 1,
+                x: 0,
                 duration: 1.2,
                 ease: 'power3.out',
             });
         });
 
         // Mission cards stagger animation
-        gsap.from('.mission-card', {
+        gsap.to('.mission-card', {
             scrollTrigger: {
                 trigger: '.mission-grid',
                 start: 'top 75%',
             },
-            opacity: 0,
-            y: 60,
+            opacity: 1,
+            y: 0,
             duration: 0.8,
             stagger: 0.2,
             ease: 'power3.out',
         });
 
         // Values cards stagger animation
-        gsap.from('.value-card', {
+        gsap.to('.value-card', {
             scrollTrigger: {
                 trigger: '.values-grid',
                 start: 'top 75%',
             },
-            opacity: 0,
-            x: -50,
+            opacity: 1,
+            x: 0,
             duration: 0.6,
             stagger: 0.1,
             ease: 'power2.out',
         });
 
         // Team members stagger animation
-        gsap.from('.team-member', {
+        gsap.to('.team-member', {
             scrollTrigger: {
                 trigger: '.team-grid',
                 start: 'top 75%',
             },
-            opacity: 0,
-            y: 80,
+            opacity: 1,
+            y: 0,
             duration: 0.8,
             stagger: 0.15,
             ease: 'power3.out',
